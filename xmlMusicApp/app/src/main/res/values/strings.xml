@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MusicApp</string>
+    <string name="mozart">Mozart</string>
+    <string name="benedictus">Benedictus</string>
+    <string name="pointerior_sala_conciertos_cl_asica">PoInterior sala conciertos cl\'asica</string>
+    <string name="button_to_to_play_and_pause_song">button to to play and pause song</string>
+    <string name="button_to_jump_to_next_song">button to jump to next song</string>
+    <string name="button_to_view_lyrics">button to view lyrics</string>
+    <string name="button_to_share_music">button to share music</string>
+    <string name="button_to_show_all_songs_in_the_almbum">button to show all songs in the almbum</string>
+    <string name="played_time">0:59</string>
+    <string name="remaining_time">2:57</string>
+    <string name="ingrese_su_nombre">Ingrese su nombre</string>
+    <string name="played">played</string>
+    <string name="remaining">remaining</string>
+
+</resources>
