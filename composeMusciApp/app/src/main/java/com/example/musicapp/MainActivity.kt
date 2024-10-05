@@ -20,6 +20,9 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,6 +32,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -127,9 +132,7 @@ fun Modifier.custom_button_modifier(): Modifier {
         .padding(top = 5.dp, bottom = 5.dp)
 }
 
-fun changeIcon() {
-    TODO("Not yet implemented")
-}
+
 
 //Got Rendering problems using the custom modifier, so i leave it this way
 @Composable
@@ -148,21 +151,7 @@ fun Standard_button(iconImage: Int, onClick: () -> Unit) {
     }
 }
 
-@Composable
-fun Play_button(onClick: () -> Unit) {
-    IconButton(
-        onClick = onClick,
-        modifier = Modifier.size(55.dp)
-            .padding(start = 10.dp, end = 10.dp)
-            .border(2.dp, Color.White)
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.play), // Use your custom drawable
-            contentDescription = "Play",
-            modifier = Modifier.size(55.dp) // Adjust size as needed
-        )
-    }
-}
+
 
 @Composable
 fun Audio_bar() {
@@ -186,12 +175,40 @@ Column {
     }
 
 }
+@Composable
+fun Play_button(iconImage: Int, onClick: () -> Unit) {
+    IconButton(
+        onClick = onClick,
+        modifier = Modifier.border(2.dp, Color.White)
+            .size(55.dp)
+            .padding(top = 5.dp, bottom = 5.dp),
+
+        ) {
+        Image(
+
+            painter = painterResource(id = iconImage), // Use your custom drawable
+            contentDescription = "Play/pause button",
+            modifier = Modifier.size(55.dp) // Adjust size as needed
+        )
+    }
+}
+
 
 /*icons from https://www.svgrepo.com/
 LICENSE: PD License
 AUTHOR: Noah Jacobus*/
 @Composable
 fun Screen() {
+
+    var imageButton by rememberSaveable { mutableStateOf(R.drawable.play) }
+
+    fun changeIcon() {
+        if (imageButton == R.drawable.play)
+            imageButton = R.drawable.pause
+        else
+            imageButton = R.drawable.play
+
+    }
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = Color.LightGray
@@ -205,8 +222,7 @@ fun Screen() {
                     horizontalArrangement = Arrangement.SpaceEvenly )
                 {
                     Standard_button(iconImage =R.drawable.previous,onClick={ donothing() })
-
-                    Play_button(onClick={changeIcon()})
+                    Play_button(iconImage =imageButton,onClick={ changeIcon() })
                     Standard_button(iconImage =R.drawable.nextcircle,onClick={ donothing() })
 
                 }
