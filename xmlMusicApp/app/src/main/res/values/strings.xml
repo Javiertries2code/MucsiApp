@@ -14,5 +14,6 @@
     <string name="played">played</string>
     <string name="remaining">remaining</string>
     <string name="button_to_go_back_to_previous_song">button to go back to previous song</string>
+    <string name="button_previous_song">button previous song</string>
 
 </resources>
