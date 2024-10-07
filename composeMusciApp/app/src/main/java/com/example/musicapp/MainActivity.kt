@@ -130,17 +130,6 @@ class MainActivity : ComponentActivity() {
     }
 //Got Rendering problems using the custom modifier, so i leave it this way
 
-    @Composable
-    fun Modifier.custom_button_modifier(): Modifier {
-        val context = LocalContext.current
-        val buttonSize = context.resources.getDimension(R.dimen.button_size)
-
-        return this
-            .border(2.dp, Color.White)
-            .size(buttonSize.dp)
-            .padding(top = 5.dp, bottom = 5.dp)
-    }
-
 
 
     @Composable
@@ -158,6 +147,18 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.size(55.dp))
         }
     }
+
+    @Composable
+    fun Modifier.custom_button_modifier(): Modifier {
+        val context = LocalContext.current
+        val buttonSize = context.resources.getDimension(R.dimen.button_size)
+
+        return this
+            .border(2.dp, Color.White)
+            .size(buttonSize.dp)
+            .padding(top = 5.dp, bottom = 5.dp)
+    }
+
 
 
     @Composable
@@ -183,7 +184,7 @@ class MainActivity : ComponentActivity() {
         }
 
     }
-
+//do nothing, i used it not to get problems with creating buttons and so on
     private fun donothing() {
 
     }
@@ -263,9 +264,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    /*icons from https://www.svgrepo.com/
-        LICENSE: PD License
-        AUTHOR: Noah Jacobus*/
+
     @Preview(
         showBackground = true, showSystemUi = true,
         device = "spec:width=411dp,height=891dp,orientation=landscape"
