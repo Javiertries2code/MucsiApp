@@ -142,7 +142,7 @@ class MainActivity : ComponentActivity() {
     }
 
 
-    //Got Rendering problems using the custom modifier, so i leave it this way
+
     @Composable
     fun Standard_button(iconImage: Int, onClick: () -> Unit) {
         IconButton(
@@ -153,10 +153,9 @@ class MainActivity : ComponentActivity() {
                 .padding(top = 5.dp, bottom = 5.dp)
         ) {
             Image(
-                painter = painterResource(id = iconImage), // Use your custom drawable
+                painter = painterResource(id = iconImage),
                 contentDescription = "Play",
-                modifier = Modifier.size(55.dp) // Adjust size as needed
-            )
+                modifier = Modifier.size(55.dp))
         }
     }
 
@@ -201,9 +200,9 @@ class MainActivity : ComponentActivity() {
             ) {
             Image(
 
-                painter = painterResource(id = iconImage), // Use your custom drawable
+                painter = painterResource(id = iconImage),
                 contentDescription = "Play/pause button",
-                modifier = Modifier.size(55.dp) // Adjust size as needed
+                modifier = Modifier.size(55.dp)
             )
         }
     }
